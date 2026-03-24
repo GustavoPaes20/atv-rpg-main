@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidade dos Dados Encantados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Banco de Dados Arcano</h1>
+    
+    <div id="consulta">
+        <h2>Desafios Mágicos</h2>
+        <button onclick="consultarCriaturas()">Criaturas Poderosas</button>
+        <button onclick="consultarArtefatos()">Artefatos Não Reclamados</button>
+        <button onclick="contarPocaoCura()">Poções de Cura</button>
+        <button onclick="criaturaAmigavel()">Criatura Amigável</button>
+        <button onclick="artefatosInvisibilidade()">Artefatos Invisíveis</button>
+    </div>
+
+    <div id="resultado">
+        <p>Aguardando comando do feiticeiro...</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

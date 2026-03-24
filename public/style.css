@@ -1,0 +1,52 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+    color: #333;
+    padding-top: 50px;
+}
+
+h1 {
+    color: #4b0082;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#consulta {
+    background: #ffffff;
+    display: inline-block;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #6a5acd;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 8px;
+    padding: 12px 20px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #483d8b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+#resultado {
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 1.3rem;
+    color: #4b0082;
+    min-height: 100px;
+    line-height: 1.6;
+}
