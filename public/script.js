@@ -57,24 +57,37 @@ const firebaseConfig = {
       const count = querySnapshot.size;
       document.getElementById("resultado").innerHTML = `🧪 Existem ${count} poções de cura no inventário.`;
   }
- // 4. Criatura mais amigavel
-async function criaturaAmigavel() {
-    const querySnapshot = await db.collection("criaturas").get();
-    let criaturas = [];
+// 4. Criatura Amigável
+  async function criaturaAmigavel() {
+      try {
+          const querySnapshot = await db.collection("criaturas").get();
+          let listaDeCriaturas = [];
 
-    querySnapshot.forEach(doc => {
-        let dados = doc.data();
-        criaturas.push({
-            nome: dados.nome,
-            qtd: dados.habilidades ? dados.habilidades.length : 0
-        });
-    });
+          querySnapshot.forEach(doc => {
+              const dados = doc.data();
+              listaDeCriaturas.push({
+                  nome: dados.nome,
+                  habilidades: dados.habilidades || [],
+                  total: (dados.habilidades || []).length
+              });
+          });
+          listaDeCriaturas.sort((a, b) => a.total - b.total);
+          const criatura = listaDeCriaturas[0];
 
-    criaturas.sort((a, b) => a.qtd - b.qtd);
+          if (criatura) {
+              const habilidadesFormatadas = criatura.habilidades.join(", ");
+              
+              let resultado = "<strong>Criatura Amigável encontrada:</strong><br>";
+              resultado += `🐾 ${criatura.nome}<br>`;
+              resultado += `✨ Habilidades: ${habilidadesFormatadas}`;
+              
+              document.getElementById("resultado").innerHTML = resultado;
+          }
 
-    const maisAmigavel = criaturas[0];
-    document.getElementById("resultado").innerHTML = `🐾 ${maisAmigavel.nome} - ${maisAmigavel.qtd} habilidade(s)`;
-}
+      } catch (error) {
+          console.error("Erro ao processar criatura amigável:", error);
+      }
+  }
   // 5. Artefatos de Invisibilidade
   async function artefatosInvisibilidade() {
       const querySnapshot = await db.collection("artefaos_encantados").where("efeitos", "array-contains", "invisibilidade").get();
